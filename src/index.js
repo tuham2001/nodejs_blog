@@ -3,7 +3,9 @@
 const path = require('path');
 const express = require('express');
 const morgan = require('morgan');
+const methodOverride = require('method-override');
 const handlebars = require('express-handlebars');
+const hbs_sections = require('express-handlebars-sections');
 const { urlencoded } = require('express');
 const app = express();
 const port = 3000;
@@ -24,14 +26,20 @@ app.use(
 // gửi từ code js
 app.use(express.json());
 
+app.use(methodOverride('_method'))
+
 //HTTP logger
-app.use(morgan('combined'));
+// app.use(morgan('combined'));
 
 // Template engine
 app.engine(
     'hbs',
     handlebars({
         extname: '.hbs',
+        helpers: { 
+            section : hbs_sections(),
+            sum: (a, b) => a + b,
+        }
     }),
 );
 app.set('view engine', 'hbs');
