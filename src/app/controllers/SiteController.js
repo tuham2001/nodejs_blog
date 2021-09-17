@@ -6,6 +6,7 @@ class SiteController {
     index(req, res, next) {
         Course.find({})
             .then(courses => {
+                console.log(req.session.authAccount)
                 res.render('home', { 
                     courses: mutipleMongoosesToObject(courses)
                 })

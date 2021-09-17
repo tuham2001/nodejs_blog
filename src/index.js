@@ -2,10 +2,9 @@
 // npm run watch
 const path = require('path');
 const express = require('express');
-const morgan = require('morgan');
 const methodOverride = require('method-override');
-const handlebars = require('express-handlebars');
-const hbs_sections = require('express-handlebars-sections');
+const expressValidator = require('express-validator');
+const flash = require('connect-flash');
 const { urlencoded } = require('express');
 const app = express();
 const port = 3000;
@@ -13,6 +12,7 @@ const port = 3000;
 const route = require('./routes');
 const db = require('./config/db')
 
+// const accounts = []
 // Connect to db
 db.connect()
 
@@ -28,28 +28,22 @@ app.use(express.json());
 
 app.use(methodOverride('_method'))
 
-//HTTP logger
-// app.use(morgan('combined'));
+app.use(expressValidator());
 
-// Template engine
-app.engine(
-    'hbs',
-    handlebars({
-        extname: '.hbs',
-        helpers: { 
-            section : hbs_sections(),
-            sum: (a, b) => a + b,
-        }
-    }),
-);
-app.set('view engine', 'hbs');
-app.set('views', path.join(__dirname, 'resources', 'views'));
+require('./middlewares/session')(app)
+require('./middlewares/view')(app)
+require('./middlewares/locals')(app)
 
-//Home, search, contact
+app.set('views', path.join(__dirname, 'resources', 'views'));   
+//Connect -flash
+app.use(flash())
 
+const restrict = require('./middlewares/auth')
 //Routes init
 route(app);
 
-    app.listen(port, () => {
+app.listen(port, () => {
     console.log(`App listening at http://localhost:${port}`);
 });
+
+
