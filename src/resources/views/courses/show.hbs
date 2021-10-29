@@ -1,18 +1,146 @@
 <div class="mt-4">
     <div class="row">
-        <div class="col-lg-3">
-            <button>HỌC NGAY</button>
+        <div class="col-8">
+            <h2>{{course.name}}</h2>
+            <p>{{course.description}}</p>
+
+            <div class="container">
+                <h3>Bạn sẽ học được gì</h3>
+                <div class="row">
+                    <section class="col-6">
+                        <ul>
+                            <li>Hiểu chi tiết về các khái niệm cơ bản trong JS</li>
+                            <li>Tự tin khi phỏng vấn với kiến thức vững chắc</li>
+                            <li>Nắm chắc các tính năng trong phiên bản ES6</li>
+                            <li>Ghi nhớ các khái niệm nhờ bài tập trắc nghiệm</li>
+                        </ul>
+                    </section>
+                    <section class="col-6">
+                        <ul>
+                            <li>Xây dựng được website đầu tiên kết hợp với JS</li>
+                            <li>Có nền tảng để học các thư viện và framework JS</li>
+                            <li>Thành thạo DOM APIs để tương tác với trang web</li>
+                            <li>Nâng cao tư duy với các bài kiểm tra với testcases</li>
+                        </ul>
+                    </section>
+                </div>
+
+            </div>
+            <div>
+                <h3>Nội dung khóa học</h3>
+            </div>
+            <div>
+                <span>13 phần . 113 bài học . Thời lượng 27 giờ 21 phút</span>
+                <span>Mở rộng tất cả</span>
+            </div>
+            <div>
+                <div id="accordion">
+                    <div class="card">
+                        <div class="card-header" id="headingOne">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne"
+                                    aria-expanded="true" aria-controls="collapseOne">
+                                    1. Giới thiệu
+                                </button>
+                            </h5>
+                        </div>
+
+                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+                            data-parent="#accordion">
+                            <div class="card-body">
+                                <div><a href="">1. Làm được gì sau khóa học?</a></div>
+                                <div><a href="">2. HTML, CSS là gì?</a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" id="headingTwo">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo"
+                                    aria-expanded="false" aria-controls="collapseTwo">
+                                    2. Làm quen với công cụ
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                            <div class="card-body">
+                                <div><a href="">3. Làm quen với Dev tools</a></div>
+                                <div><a href="">4. Cài đặt môi trường</a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" id="headingThree">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link collapsed" data-toggle="collapse"
+                                    data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    3. Làm quen với HTML
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
+                            data-parent="#accordion">
+                            <div class="card-body">
+                                <div><a href="">5. Cấu trúc file HTML</a></div>
+                                <div><a href="">6. Comments trong HTML</a></div>
+                                <div><a href="">7. Test tính cẩn thận và chỉn chu của bạn</a></div>
+                                <div><a href="">8. Thẻ HTML thông dụng</a></div>
+                                <div><a href="">9. Attribute trong HTML</a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" id="headingFour">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link collapsed" data-toggle="collapse"
+                                    data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                    4. Làm quen với CSS
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+                            <div class="card-body">
+                                <div><a href="">10. Sử dụng CSS trong HTML</a></div>
+                                <div><a href="">11. ID và Class</a></div>
+                                <div><a href="">12. CSS selector</a></div>
+                                <div><a href="">13. Độ ưu tiên trong CSS</a></div>
+                                <div><a href="">14. Đặt biến trong CSS</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <h3>Yêu cầu</h3>
+                <section>
+                    <ul>
+                        <li>Máy vi tính kết nối internet (Windows, Ubuntu hoặc MacOS)</li>
+                        <li>Ý thức tự học cao, trách nhiệm cao, kiên trì bền bỉ không ngại cái khó</li>
+                        <li>Không được nóng vội, bình tĩnh học, làm bài tập sau mỗi bài học</li>
+                        <li>Khi học nếu có khúc mắc hãy tham gia hỏi/đáp tại group FB: Học lập trình web </li>
+                        <li>Bạn không cần biết gì hơn nữa, trong khóa học tôi sẽ chỉ cho bạn những gì bạn cần phải biết
+                        </li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+
+        <div class="col-4 ">
+
+            <iframe width="333" height="188" src="https://www.youtube.com/embed/{{course.videoId}}"
+                title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+            <h5 class="text-center">Miễn phí</h5>
+
+            <a href="../learnings/{{course.slug}}" class="btn btn-primary text-center">Đăng ký học</a>
+
             <ul>
                 <li>
                     {{course.level}}
                 </li>
             </ul>
-        </div>
 
-        <div class="col-lg-9">
-            <h2>{{course.name}}</h2>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/{{course.videoId}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            <p>{{course.description}}</p>
         </div>
     </div>
 </div>

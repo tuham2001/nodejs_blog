@@ -1,3 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+body {
+  line-height: 1.5;
+  font-family: 'Poppins', sans-serif; }
+
+.h5 {
+  margin-bottom: 0;
+  margin-left: 20px;
+  color: white; }
+
+hr {
+  border-top: none;
+  border: 1px solid lightgrey; }
+
+#banner {
+  top: 18.75em; }
+
 .card-course-item {
   margin-top: 16px; }
 
@@ -6,6 +23,84 @@
   height: 28px;
   border-radius: 50%;
   margin-right: 4px; }
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10; }
+
+/* Add some top padding to the page content to prevent sudden quick movement (as the header gets a new position at the top of the page (position:fixed and top:0) */
+.sticky + .content {
+  padding-top: 102px; }
+
+#logo {
+  text-decoration: none;
+  color: red;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 1.5rem;
+  letter-spacing: 2px;
+  display: block; }
+
+.footer {
+  background-color: #24262b;
+  padding: 50px 0; }
+
+.col h4 {
+  font-size: 18px;
+  color: #ffffff;
+  text-transform: capitalize;
+  margin-bottom: 35px;
+  font-weight: 500;
+  position: relative; }
+
+.col h4::before {
+  content: " ";
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  background-color: #e91e63;
+  height: 2px;
+  box-sizing: border-box;
+  width: 50px; }
+
+.col ul li:not(:last-child) {
+  margin-bottom: 10px; }
+
+.col ul li a {
+  font-size: 16px;
+  text-transform: capitalize;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 300;
+  color: #bbbbbb;
+  display: block;
+  transition: all 0.3s ease; }
+
+.col ul li a:hover {
+  color: #ffffff;
+  padding-left: 8px; }
+
+.col .social-links a {
+  display: inline-block;
+  height: 40px;
+  width: 40px;
+  background-color: rgba(255, 255, 255, 0.2);
+  margin: 0 10px 10px 0;
+  text-align: center;
+  line-height: 40px;
+  border-radius: 50%;
+  color: #ffffff;
+  transition: all 0.5s ease; }
+
+.col .social-links a:hover {
+  color: #24262b;
+  background-color: #ffffff; }
+
+ul {
+  padding: 0;
+  list-style: none; }
 
 .errors {
   background: #e79892;
@@ -40,3 +135,6 @@
 
 .fa-product-hunt {
   font-size: 32px; }
+
+.text-center {
+  text-align: center; }

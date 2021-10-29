@@ -10,15 +10,19 @@ const Course = new Schema({
     image: { type: String },
     videoId: { type: String, required: true },
     level: { type: String },
-    slug: { type: String, slug:'name', unique: true },
+    slug: { type: String, slug: 'name', unique: true },
+    // learnings: [{
+    //     type: Schema.Types.ObjectId,
+    //     ref: 'Learning'
+    // }]
 }, {
     timestamps: true,
 })
 
 // add plugins
 mongoose.plugin(slug)
-Course.plugin(mongooseDelete, { 
-    deletedAt : true,
+Course.plugin(mongooseDelete, {
+    deletedAt: true,
     overrideMethods: 'all',
 })
 

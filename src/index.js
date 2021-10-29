@@ -34,11 +34,21 @@ require('./middlewares/session')(app)
 require('./middlewares/view')(app)
 require('./middlewares/locals')(app)
 
-app.set('views', path.join(__dirname, 'resources', 'views'));   
+app.set('views', path.join(__dirname, 'resources', 'views'));
 //Connect -flash
 app.use(flash())
 
+function sendData() {
+    fetch('getFruits', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ payload: e.value }),
+    })
+}
+
+
 const restrict = require('./middlewares/auth')
+const checkAdmin = require('./middlewares/checkAdmin')
 //Routes init
 route(app);
 

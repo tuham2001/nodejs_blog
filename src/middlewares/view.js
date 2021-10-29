@@ -1,7 +1,7 @@
 const hbs_sections = require('express-handlebars-sections');
 const handlebars = require('express-handlebars');
 
-module.exports = function(app) {
+module.exports = function (app) {
     app.engine(
         'hbs',
         handlebars({
@@ -13,5 +13,5 @@ module.exports = function(app) {
         }),
     );
     app.set('view engine', 'hbs');
-    
+
 }

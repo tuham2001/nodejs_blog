@@ -1,9 +1,22 @@
-<div class="mt-4">
-    <div class="row">
+<div class="card bg-dark text-white">
+    <img class="card-img"
+        src="https://topdev.vn/blog/wp-content/uploads/2019/06/nghe%CC%82%CC%80-la%CC%A3%CC%82p-tri%CC%80nh.png"
+        alt="Card image">
+    <div id="banner" class="card-img-overlay">
+        <h5 class="card-title">Thành quả của học viên</h5>
+        <p class="card-text">Để đạt được kết quả tốt trong mọi việc ta cần xác định mục tiêu rõ ràng cho việc đó. Học
+            lập trình
+            cũng không ngoại lệ</p>
+        <button type="button" class="btn btn-warning">Xem thành quả</button>
+    </div>
+</div>
 
+<div class="mt-4">
+    <h2>Các khóa học</h2>
+    <div class="row">
         {{#each courses}}
         <div class="col-sm-6 col-lg-4">
-            <div class="card card-course-item" >
+            <div class="card card-course-item">
                 <a href="/courses/{{this.slug}}">
                     <img src="{{this.image}}" class="card-img-top" alt="{{this.name}}">
                 </a>
@@ -17,7 +30,5 @@
             </div>
         </div>
         {{/each}}
-
-
     </div>
 </div>

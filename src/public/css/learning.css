@@ -1,0 +1,45 @@
+.card-course-item {
+  margin-top: 16px; }
+
+.user-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  margin-right: 4px; }
+
+.errors {
+  background: #e79892;
+  padding: 5px;
+  margin-bottom: 10px;
+  min-width: 200px;
+  display: inline-block;
+  border: 1px solid #e74c3c; }
+
+.errors ul {
+  margin: 0;
+  padding: 0;
+  list-style: none; }
+
+.err {
+  background: #e79892;
+  padding: 5px;
+  margin-bottom: 10px;
+  min-width: 200px;
+  display: inline-block;
+  border: 1px solid #e74c3c; }
+
+.err ul {
+  margin: 0;
+  padding: 0;
+  list-style: none; }
+
+.facebook li a {
+  color: #82919b;
+  font-size: 2rem;
+  padding: 4px 8px; }
+
+.fa-product-hunt {
+  font-size: 32px; }
+
+.text-center {
+  text-align: center; }

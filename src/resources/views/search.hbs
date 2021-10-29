@@ -1,17 +1,45 @@
 <div class="mt-4">
-    <form method="POST" action="">
+    <form method="POST" action="/getFruits">
         <div class="form-group">
             <label for="search-input">Từ khóa</label>
-            <input type="text" name="q" class="form-control" id="search-input" placeholder="Nhập từ khóa...">
+            <input type="text" name="title" class="form-control" id="search-box" placeholder="Nhập từ khóa..."
+                onkeyup="sendData(this)">
         </div>
-        <div class="form-group">
-            <label for="gender-input">Từ khóa</label>
-            <select name="gender" id="gender-input" class="form-control">
-                <option value="">-- Chọn giới tính --</option>
-                <option value="male">Nam</option>
-                <option value="female">Nữ</option>
-            </select>
-        </div>
+        <section id="searchResults">
+
+        </section>
         <button type="submit" class="btn btn-primary">Tìm kiếm</button>
     </form>
+    <script>
+        function sendData(e) {
+            const searchResults = document.getElementById("searchResults");
+            let match = e.value.match(/^[a-zA-Z ]*/)
+            let match2 = e.value.match(/\s*/)
+            if (match2[0] === e.value) {
+                searchResults.innerHTML = ''
+                return
+            }
+            if (match[0] === e.value) {
+                fetch('postSearch', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ payload: e.value }),
+                }).then(res => res.json()).then(data => {
+                    let payload = data.payload;
+                    searchResults.innerHTML = ''
+                    if (payload.length < 1) {
+                        searchResults.innerHTML = '<p>Xin lỗi. Không tìm thấy bài học</p>'
+                        return
+                    }
+                    payload.forEach((item, index) => {
+                        if (index > 0) searchResults.innerHTML += '<hr>'
+                        searchResults.innerHTML += `<a href="/learnings/${item.name}?id=${item.id}"><p>${item.title}</p></a>`
+
+                    })
+                });
+                return
+            }
+            searchResults.innerHTML = ''
+        }
+    </script>
 </div>
