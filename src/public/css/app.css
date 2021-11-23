@@ -3,6 +3,29 @@ body {
   line-height: 1.5;
   font-family: 'Poppins', sans-serif; }
 
+.col-0 {
+  display: none; }
+
+@media (min-width: 768px) and (max-width: 992px) {
+  .col-md-0 {
+    display: none; } }
+
+@media (min-width: 576px) and (max-width: 768px) {
+  .col-sm-0 {
+    display: none; } }
+
+@media (max-width: 576px) {
+  .col-xs-0 {
+    display: none; } }
+
+@media (max-width: 992px) {
+  .iframe {
+    height: 100%; }
+  .footer {
+    margin-top: 80px; }
+  .videoLearn {
+    padding: 0; } }
+
 .h5 {
   margin-bottom: 0;
   margin-left: 20px;
@@ -138,3 +161,9 @@ ul {
 
 .text-center {
   text-align: center; }
+
+.yeucau ul li {
+  margin: 10px; }
+
+.listLearn {
+  padding: 0; }

@@ -20,7 +20,7 @@ class LearningController {
             .then(learnings => {
                 res.render('learnings/show', {
                     learnings: mutipleMongoosesToObject(learnings),
-                    layout: false
+                    // layout: false
                 })
             })
             .catch(next)

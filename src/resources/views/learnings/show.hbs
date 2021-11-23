@@ -1,74 +1,49 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <link rel="stylesheet" href="/css/app.css">
-  {{{_sections.css}}}
-</head>
-
-<body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="/"><i class="fab fa-product-hunt"></i></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div style="color:white">| {{learning.name}}</div>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <form action="/" method="GET" class="form" id="form-1"></form>
-      <ul class="navbar-nav ml-auto">
-        {{#if lcIsAuthenticated}}
-        <button type="button" class="btn btn-dark">Hướng dẫn</button>
-        {{else}}
-        <li class="nav-item">
-          <a class="nav-link" href="/accounts/login">
-            <i class="fas fa-sign-in-alt"></i>
-            Đăng nhập</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/accounts/register">
-            <i class="fas fa-user-plus"></i>
-            Đăng ký</a>
-        </li>
-        {{/if}}
-      </ul>
+{{!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="/"><i class="fab fa-product-hunt"></i></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div style="color:white">| {{learning.name}}</div>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <form action="/" method="GET" class="form" id="form-1"></form>
+    <ul class="navbar-nav ml-auto">
+      {{#if lcIsAuthenticated}}
+      <button type="button" class="btn btn-dark huongdan">Hướng dẫn</button>
+      {{else}}
+      <li class="nav-item">
+        <a class="nav-link" href="/accounts/login">
+          <i class="fas fa-sign-in-alt"></i>
+          Đăng nhập</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/accounts/register">
+          <i class="fas fa-user-plus"></i>
+          Đăng ký</a>
+      </li>
+      {{/if}}
+    </ul>
+  </div>
+</nav> --}}
+<div>
+  <div class="row">
+    <div class="col-lg-8 col-12 listLearn">
+      <iframe class="videoLearn" width="100%" height="500px" src="https://www.youtube.com/embed/{{this.videoId}}"
+        id="lessonVideo" title="YouTube video player" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
     </div>
-  </nav>
-  <div>
-    <div class="row">
-      <div class="col-8">
-        <iframe width="930" height="500" src="https://www.youtube.com/embed/{{this.videoId}}" id="lessonVideo"
-          title="YouTube video player" frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen></iframe>
-      </div>
-      <div class="col-4">
-        <div>
-          <div id="accordion">
-            <div class="card">
-              {{!-- <div class="card-header" id="headingOne">
-                <h5 class="mb-0">
-                  <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
-                    aria-controls="collapseOne">
-                    1. Giới thiệu
-                  </button>
-                </h5>
-              </div> --}}
-              <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-                <div class="card-body">
-                  <div>
-                    {{#each learnings}}
-                    <a onclick="setVideo(this)" class="lesson"
-                      href="/learnings/{{this.name}}?id={{this.id}}">{{this.title}}</a> <br>
-                    {{/each}}
-                  </div>
+    <div class="col-lg-4 col-12 listLearn">
+      <div>
+        <div id="accordion">
+          <div class="card">
+            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+              <div class="card-body">
+                <div>
+                  {{#each learnings}}
+                  <a onclick="setVideo(this)" class="lesson"
+                    href="/learnings/{{this.name}}?id={{this.id}}">{{this.title}}</a> <br>
+                  {{/each}}
                 </div>
               </div>
             </div>
@@ -77,23 +52,18 @@
       </div>
     </div>
   </div>
-  <script>
-    function setVideo(e) {
-      var lessonVideo = document.getElementById("lessonVideo");
-      lessonVideo.src = 'https://www.youtube.com/embed/{{this}}'
-      alert(lessonVideo.src)
-    }
-  </script>
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-    crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-    crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-    crossorigin="anonymous"></script>
-  {{{_sections.js}}}
-</body>
-
-</html>
+</div>
+<script>
+  function setVideo(e) {
+    var lessonVideo = document.getElementById("lessonVideo");
+    lessonVideo.src = 'https://www.youtube.com/embed/z2f7RHgvddc'
+    alert(lessonVideo.src)
+  }
+</script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+  integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+  integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+  integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+{{{_sections.js}}}

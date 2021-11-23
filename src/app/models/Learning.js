@@ -11,7 +11,6 @@ const Learning = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'Course'
     },
-    // role: { type: String },
 }, {
     timestamps: true,
 })

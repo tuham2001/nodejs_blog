@@ -1,10 +1,12 @@
 // npm start
 // npm run watch
+const FbAccount = require('./app/models/FbAccount')
 const path = require('path');
 const express = require('express');
 const methodOverride = require('method-override');
 const expressValidator = require('express-validator');
 const flash = require('connect-flash');
+const passport = require('passport')
 const { urlencoded } = require('express');
 const app = express();
 const port = 3000;
@@ -44,6 +46,51 @@ function sendData() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ payload: e.value }),
     })
+}
+
+// Login Facebook
+var FacebookStrategy = require('passport-facebook').Strategy
+
+app.use(passport.initialize())
+app.use(passport.session())
+
+passport.serializeUser(function (user, done) {
+    done(null, user)
+})
+passport.deserializeUser(function (user, done) {
+    done(null, user)
+})
+
+passport.use(new FacebookStrategy({
+    clientID: '289060633096536',
+    clientSecret: '5546b59d95eb2e2344336b25fde446dc',
+    callbackURL: "https://a783-171-255-242-29.ngrok.io/auth/facebook/callback",
+    profileFields: ['id', 'displayName', 'name', 'picture.type(large)', 'email']
+},
+    function (accessToken, refreshToken, profile, cb) {
+        console.log(profile)
+        return cb(null, profile)
+    }
+));
+
+app.get('/auth/facebook',
+    passport.authenticate('facebook'));
+app.get('/auth/facebook/callback',
+    passport.authenticate('facebook', { failureRedirect: '/accounts/login' }),
+    function (req, res) {
+        // Successful authentication, redirect home.
+        res.redirect('/');
+    });
+
+app.get('/home', isLoggedIn, (req, res, next) => {
+    res.json(req.user)
+})
+// route middleware to make sure
+function isLoggedIn(req, res, next) {
+    if (req.isAuthenticated())
+        return next();
+
+    res.redirect('/');
 }
 
 

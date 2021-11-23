@@ -144,6 +144,15 @@
                 </ul>
             </section>
             {{/if}}
+            {{#if success}}
+            <section class="errors">
+                <ul>
+                    {{#each err}}
+                    <li>{{this.success_msg}}</li>
+                    {{/each}}
+                </ul>
+            </section>
+            {{/if}}
             <div class="spacer"></div>
 
             <div class="form-group">

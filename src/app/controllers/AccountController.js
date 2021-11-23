@@ -24,9 +24,9 @@ class AccountController {
         req.check('email', 'Trường này phải là email').isEmail()
         req.check('password', 'Mật khẩu tối thiểu 6 kí tự').isLength({ min: 6 })
         req.check('password', 'Mật khẩu không khớp').equals(req.body.password_confirmation)
+        console.log(req.body.email)
 
         var errors = req.validationErrors()
-
         if (errors) {
             req.session.errors = errors
             res.redirect('/accounts/register')
@@ -46,8 +46,8 @@ class AccountController {
                     newAccount.password = hash;
                     newAccount.save()
                         .then(account => {
-                            req.flash('success_msg', 'Đăng ký thành công')
                             res.redirect('/accounts/login')
+                            req.flash('success_msg', 'Đăng ký thành công')
                         })
                         .catch(err => console.log(err))
                 })
