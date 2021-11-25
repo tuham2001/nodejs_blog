@@ -34,7 +34,6 @@
                     payload.forEach((item, index) => {
                         if (index > 0) searchResults.innerHTML += '<hr>'
                         searchResults.innerHTML += `<a href="/learnings/${item.name}?id=${item.id}"><p>${item.title}</p></a>`
-
                     })
                 });
                 return

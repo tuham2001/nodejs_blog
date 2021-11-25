@@ -28,8 +28,8 @@
 <div>
   <div class="row">
     <div class="col-lg-8 col-12 listLearn">
-      <iframe class="videoLearn" width="100%" height="500px" src="https://www.youtube.com/embed/{{this.videoId}}"
-        id="lessonVideo" title="YouTube video player" frameborder="0"
+      <iframe class="videoLearn" width="100%" height="500px" id="lessonVideo" title="YouTube video player"
+        src="https://www.youtube.com/embed/{{this.videoId}}" frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowfullscreen></iframe>
     </div>
@@ -40,8 +40,9 @@
             <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
               <div class="card-body">
                 <div>
+
                   {{#each learnings}}
-                  <a onclick="setVideo(this)" class="lesson"
+                  <a href="#" onclick="setVideo(this)" class="lesson" name="{{this.videoId}}"
                     href="/learnings/{{this.name}}?id={{this.id}}">{{this.title}}</a> <br>
                   {{/each}}
                 </div>
@@ -55,9 +56,9 @@
 </div>
 <script>
   function setVideo(e) {
-    var lessonVideo = document.getElementById("lessonVideo");
-    lessonVideo.src = 'https://www.youtube.com/embed/z2f7RHgvddc'
-    alert(lessonVideo.src)
+    const lessonVideo = document.getElementById("lessonVideo");
+    lessonVideo.src = 'https://www.youtube.com/embed/' + e.name
+    console.log(document.getElementById("lessonVideo"))
   }
 </script>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"

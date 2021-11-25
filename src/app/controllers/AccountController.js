@@ -2,7 +2,8 @@ const bcrypt = require('bcryptjs');
 const Account = require('../models/Account')
 const passport = require('passport')
 var auth = require('../../middlewares/auth')
-const { mongooseToObject } = require('../../util/mongoose')
+const { mongooseToObject } = require('../../util/mongoose');
+const { connection } = require('mongoose');
 
 class AccountController {
 
@@ -56,6 +57,7 @@ class AccountController {
         }
 
     }
+
     // [GET] / accounts/ login
     login(req, res, next) {
         res.render('accounts/login', {

@@ -8,14 +8,6 @@ class LearningController {
 
     // [GET] /learnings/ name
     async show(req, res, next) {
-        // Learning.find({})
-        //     .then(learnings => {
-        //         res.render('learnings/html-css', {
-        //             learnings: mutipleMongoosesToObject(learnings),
-        //             layout: false
-        //         })
-        //     })
-        //     .catch(next)
         Learning.find({ name: req.params.name })
             .then(learnings => {
                 res.render('learnings/show', {
@@ -24,16 +16,26 @@ class LearningController {
                 })
             })
             .catch(next)
-
-        // Learning.findOne({ name: req.params.name })
-        //     .then(learning => {
-        //         res.render('learnings/show',
-        //             {
-        //                 learning: mongooseToObject(learning),
-        //                 layout: false
-        //             })
+        // let learnings = []
+        // let current_lesson = {}
+        // if (req.query.id) {
+        //     Learning.find({ id: req.query.id })
+        //         .then(lesson => {
+        //             current_lesson = lesson
+        //         })
+        //         .catch(next)
+        // }
+        // Learning.find({ name: req.params.name })
+        //     .then(learnings => {
+        //         learnings = learnings
         //     })
         //     .catch(next)
+
+
+        // res.render('learnings/show', {
+        //     learnings: mutipleMongoosesToObject(learnings),
+        //     current_lesson: mutipleMongoosesToObject(learnings)
+        // })
     }
     lesson(req, res, next) {
         Learning.find({})
